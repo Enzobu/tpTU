@@ -5,8 +5,8 @@ const sequelize = require('./config/db');
 const PORT = process.env.PORT || 3000; // Fallback to 3000 if PORT is not defined
 
 // Sync database and start the server
-//sequelize.sync({force:true})
-sequelize.sync()
+sequelize.sync({force:true})
+//sequelize.sync()
     .then(() => {
         console.log('Database connected and synced');
         app.listen(PORT, () => {

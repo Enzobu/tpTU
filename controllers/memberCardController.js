@@ -1,4 +1,5 @@
 const MemberCard = require('../models/memberCardModel');
+const crypto = require('crypto');
 
 
 
@@ -26,14 +27,15 @@ exports.getCardById = async (req, res) => {
 };
 
 // Create new card
-exports.createUser = async (req, res) => {
+exports.createCard = async (req, res) => {
     try {
         const { userId } = req.body;
-
+        
         if (!userId) {
             return res.status(400).json({ error: 'UserId is required' });
         }
         const newCard = await MemberCard.create({ userId });
+        
         res.status(201).json(newCard);
     } catch (error) {
     res.status(500).json({ error: error.message });
@@ -41,7 +43,7 @@ exports.createUser = async (req, res) => {
 };
 
 // Update card by ID
-exports.updateUser = async (req, res) => {
+exports.updateCard = async (req, res) => {
     try {
         const { name, email } = req.body;
         const card = await User.findByPk(req.params.id);
@@ -58,7 +60,7 @@ exports.updateUser = async (req, res) => {
 };
 
 // Delete card by ID
-exports.deleteUser = async (req, res) => {
+exports.deleteCard = async (req, res) => {
     try {
         const card = await MemberCard.findByPk(req.params.id);
         if (!card) {

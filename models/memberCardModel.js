@@ -10,11 +10,6 @@ const MemberCard = sequelize.define('MemberCard', {
     },
     userId: {
         type: DataTypes.INTEGER,
-        autoIncrement: false,
-        allowNull: false
-    },
-    cardId: {
-        type: DataTypes.INTEGER,
         allowNull: false
     },
 }, {
@@ -22,3 +17,7 @@ const MemberCard = sequelize.define('MemberCard', {
 });
 
 module.exports = MemberCard;
+
+const User = require('./userModel.js');
+
+MemberCard.belongsTo(User, {foreignKey: "userId"});

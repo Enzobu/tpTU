@@ -1,5 +1,7 @@
 const UserService = require('../services/userServices')
 const User = require('../models/userModel');
+const MemberCard = require('../models/memberCardModel');
+
 
 
 const userService = new UserService();
@@ -7,8 +9,12 @@ const userService = new UserService();
 // Get all users
 exports.getAllUsers = async (req, res) => {
     try {
-        const users = await User.findAll();
-        res.json(users);
+        const users = await User.findAll({
+            include: {
+                model: MemberCard,
+                as: 'cardId' // Utilisez l'alias défini dans votre association `User.hasOne(MemberCard)`
+            }
+        });        res.json(users);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
