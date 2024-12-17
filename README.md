@@ -1,8 +1,8 @@
 # ------- User story -------
 
-# User :
+# 1. User :
 
-## 1. Ajouter un user (POST /) :
+## 1.1 Ajouter un user (POST /) :
 **En tant qu'utilisateur,**
 **Je veux** Ajouter un user,
 **Afin de**  l'ajouter au système avec les informations nécessaires.
@@ -14,23 +14,11 @@
 - Si les données saisies sont invalides (par exemple, champs requis manquants), le système renvoie une erreur 400 avec un retour sur la validation.
 - Après la création, le système répond avec les détails du nouvel utilisateur créé.
 
-
-# 2. Emprunter un livre de la bibliothère (GET /) :
-**En tant qu'utilisateur,**
-**Je veux** emprunter un livre de la bibliothèque,
-**Afin de** pouvoir le lire.
-
-## Critère d'acceptation :
-- Renvoie l'id du livre
-- Modifie le statut du livre sur 'non dispo'
-- Ne renvoie pas l'id du livre si il n'est pas dispo
-- Ne renvoie pas l'id du livre si l'utilisateur ne possède pas de carte valide
-
 <br><br>
 
-# MemberCard :
+# 2. MemberCard :
 
-## Récupérer toutes les memberCards (GET /)
+## 2.1 Récupérer toutes les memberCards (GET /)
 **En tant qu'utilisateur,**
 **Je veux** voir une liste de toutes les memberCards,
 **Afin de** pouvoir rapidement accéder aux informations sur toutes les memberCards dans le système.
@@ -41,7 +29,7 @@
 - S'il n'y a pas de memberCards, le système renvoie une liste vide.
 
 
-## Récupérer une memberCard par ID (GET /:id)
+## 2.2 Récupérer une memberCard par ID (GET /:id)
 **En tant qu'utilisateur,**
 **Je veux** consulter des informations détaillées sur une memberCard spécifique,
 **Afin de** pouvoir voir les informations spécifiques à la memberCard.
@@ -52,7 +40,7 @@
 - Si l'ID de la memberCard n'existe pas, le système renvoie une erreur 404 avec un message explicatif.
 
 
-## Créer une memberCard (POST /)
+## 2.3 Créer une memberCard (POST /)
 **En tant qu'administrateur,**
 **Je veux** créer une nouvelle memberCard,
 **Afin de** pouvoir l'ajouter au système avec les informations nécessaires.
@@ -64,7 +52,7 @@
 - Après la création, le système répond avec les détails du la nouvelle memberCard créé.
 
 
-## Mettre à jour une memberCard (PUT /:id)
+## 2.4 Mettre à jour une memberCard (PUT /:id)
 **En tant qu'administrateur,**
 **Je veux** mettre à jour les informations d'une memberCards,
 **Afin de** pouvoir modifier ses données si nécessaire.
@@ -77,7 +65,7 @@
 - Les détails mis à jour de la memberCard sont reflétés dans la base de données.
 
 
-## Supprimer une memberCard (DELETE /:id)
+## 2.5 Supprimer une memberCard (DELETE /:id)
 **En tant qu'administrateur,**
 **Je veux** supprimer une memberCard du système,
 **Afin de** pouvoir retirer une memberCard qui n'est plus nécessaire.
