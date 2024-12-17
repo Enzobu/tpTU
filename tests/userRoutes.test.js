@@ -16,7 +16,7 @@ describe('User Routes', () => {
     });
 
     it('should create a new user', async () => {
-        const res = await request.post('/users').send({
+        const res = await request.post('/users/createuser').send({
             name: 'John Doe',
             email: 'john.doe@example.com',
         });
@@ -35,7 +35,7 @@ describe('User Routes', () => {
     });
 
     it('should retrieve a user by ID', async () => {
-        const user = await request.post('/users').send({
+        const user = await request.post('/users/createuser').send({
             name: 'Jane Doe',
             email: 'jane.doe@example.com',
         });
@@ -47,12 +47,12 @@ describe('User Routes', () => {
     });
 
     it('should update a user', async () => {
-        const user = await request.post('/users').send({
+        const user = await request.post('/users/createuser').send({
             name: 'Alice',
             email: 'alice@example.com',
         });
 
-        const res = await request.put(`/users/${user.body.id}`).send({
+        const res = await request.put(`/users/update/${user.body.id}`).send({
             name: 'Alice Updated',
         });
 
@@ -61,12 +61,12 @@ describe('User Routes', () => {
     });
 
     it('should delete a user', async () => {
-        const user = await request.post('/users').send({
+        const user = await request.post('/users/createuser').send({
             name: 'Bob',
             email: 'bob@example.com',
         });
 
-        const res = await request.delete(`/users/${user.body.id}`);
+        const res = await request.delete(`/users/delete/${user.body.id}`);
         expect(res.status).to.equal(204);
 
         const findRes = await request.get(`/users/${user.body.id}`);
