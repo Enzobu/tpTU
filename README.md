@@ -23,7 +23,7 @@
 - Ne renvoie pas l'id du livre si il n'est pas dispo
 - Ne renvoie pas l'id du livre si l'utilisateur ne possède pas de carte valide
 
-
+<br><br>
 
 # MemberCard :
 
