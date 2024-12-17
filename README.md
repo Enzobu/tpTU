@@ -2,14 +2,17 @@
 
 # User :
 
-## 1. Générer une carte de bibliothèque (POST /) :
+## 1. Ajouter un user (POST /) :
 **En tant qu'utilisateur,**
-**Je veux** générer ma carte de bibliothèque afin de récupérer mon numéro de carte de bibliothèque,
-**Afin de** pouvoir emprunter des livres.
+**Je veux** Ajouter un user,
+**Afin de**  l'ajouter au système avec les informations nécessaires.
 
 ### Critère d'acceptation :
-- Renvoie le numéro de carte généré
-- Ne génère pas de numéro de carte si le user en a déjà une
+- Le mail de l'utilisateur n'est pas déjà utilisé.
+- Une requête valide contient les informations de l'utilisateur (par exemple, nom, email, mot de passe).
+- Le système crée un nouvel utilisateur et le stocke dans la base de données.
+- Si les données saisies sont invalides (par exemple, champs requis manquants), le système renvoie une erreur 400 avec un retour sur la validation.
+- Après la création, le système répond avec les détails du nouvel utilisateur créé.
 
 
 # 2. Emprunter un livre de la bibliothère (GET /) :
