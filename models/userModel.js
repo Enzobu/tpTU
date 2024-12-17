@@ -19,7 +19,7 @@ const User = sequelize.define('User', {
         allowNull: false,
         unique: true
     },
-    card_id: {
+    cardId: {
         type: DataTypes.INTEGER,
         allowNull: true,
         unique: true,
@@ -29,12 +29,16 @@ const User = sequelize.define('User', {
         },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL'
+    },
+    role: {
+      type: DataTypes.ENUM('admin', 'pasAdmin'),
+      allowNull: true
     }
 }, {
     timestamps: true
 });
 
-User.belongsTo(MemberCard, { foreignKey: 'card_id', as: 'memberCard' });
-MemberCard.hasOne(User, { foreignKey: 'card_id', as: 'user' });
+User.belongsTo(MemberCard, { foreignKey: 'cardId', as: 'memberCard' });
+MemberCard.hasOne(User, { foreignKey: 'cardId', as: 'user' });
 
 module.exports = User;

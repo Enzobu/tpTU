@@ -1,4 +1,8 @@
+const UserService = require('../services/userServices')
 const User = require('../models/userModel');
+
+
+const userService = new UserService();
 
 // Get all users
 exports.getAllUsers = async (req, res) => {
@@ -26,17 +30,22 @@ exports.getUserById = async (req, res) => {
 // Create new user
 exports.createUser = async (req, res) => {
     try {
-        console.log(req.body);
-        
         const { name, email } = req.body;
+
+        //SERVICE RAJOUTÉ
+        const check = await userService.isEmailTaken(email)
+        
+        if (check) {
+            return res.status(401).json({ message: 'Email already taken' });
+        }
         if (!name || !email) {
             return res.status(400).json({ error: 'Name and email are required' });
         }
         const newUser = await User.create({ name, email });
         res.status(201).json(newUser);
     } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
+    res.status(500).json({ error: error.message });
+}
 };
 
 // Update user by ID

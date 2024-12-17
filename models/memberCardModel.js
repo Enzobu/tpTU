@@ -8,12 +8,12 @@ const MemberCard = sequelize.define('MemberCard', {
         autoIncrement: true,
         primaryKey: true
     },
-    user_id: {
+    userId: {
         type: DataTypes.INTEGER,
         autoIncrement: false,
         allowNull: false
     },
-    card_id: {
+    cardId: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
